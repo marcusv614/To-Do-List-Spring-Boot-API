@@ -1,7 +1,11 @@
 package br.com.marcus.todolistapi.controller;
 
+import java.util.List;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import br.com.marcus.todolistapi.model.TaskModel;
 import br.com.marcus.todolistapi.service.TaskService;
 
 @RestController
@@ -11,5 +15,10 @@ public class TaskController {
 
     public TaskController(TaskService service){
         this.service = service;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<TaskModel>> showAllTasks(){
+        return ResponseEntity.ok(service.show());
     }
 }
