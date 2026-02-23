@@ -13,12 +13,18 @@ public class TaskService {
         this.repo = repo;
     }
 
-    public List<TaskModel> show(){
+    public List<TaskModel> showAllTasks(){
         List<TaskModel> list = repo.findAll();
         return list;
     }
 
     public void saveTaskModel(TaskModel model){
         repo.save(model);
+    }
+    public void updateTask(Long id, TaskModel model){
+        TaskModel modelData = repo.findById(id)
+        .orElseThrow(() -> new RuntimeException("Task not found"));
+        modelData.setTitle(model.getTitle());
+        repo.save(modelData);
     }
 }
