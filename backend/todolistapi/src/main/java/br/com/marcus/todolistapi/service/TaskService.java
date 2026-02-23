@@ -17,4 +17,8 @@ public class TaskService {
         List<TaskModel> list = repo.findAll();
         return list;
     }
+
+    public void saveTaskModel(TaskModel model){
+        repo.save(model);
+    }
 }
