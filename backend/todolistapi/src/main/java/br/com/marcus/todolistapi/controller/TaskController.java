@@ -1,6 +1,11 @@
 package br.com.marcus.todolistapi.controller;
 
 import java.util.List;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,5 +25,11 @@ public class TaskController {
     @GetMapping
     public ResponseEntity<List<TaskModel>> showAllTasks(){
         return ResponseEntity.ok(service.show());
+    }
+
+    @PostMapping
+    public ResponseEntity saveTask(@RequestBody TaskModel model){
+        service.saveTaskModel(model);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
