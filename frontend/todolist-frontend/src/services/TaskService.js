@@ -9,9 +9,9 @@ export const postTasks = (task) => {
 };
 
 export const putTask = (id, task) => {
-  api.put(`/${id}`, task);
+  return api.put(`/${id}`, task);
 };
 
 export const deleteTask = (id) => {
-  return api.delete(`${id}`);
+  return api.delete(`/${id}`);
 };
