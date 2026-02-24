@@ -1,9 +1,7 @@
 package br.com.marcus.todolistapi.service;
 
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import br.com.marcus.todolistapi.model.TaskModel;
 import br.com.marcus.todolistapi.repository.TaskRepository;
 
@@ -20,8 +18,8 @@ public class TaskService {
         return list;
     }
 
-    public void saveTaskModel(TaskModel model){
-        repo.save(model);
+    public TaskModel saveTaskModel(TaskModel model){
+        return repo.save(model);
     }
     public void updateTask(Long id, TaskModel model){
         TaskModel modelData = repo.findById(id)

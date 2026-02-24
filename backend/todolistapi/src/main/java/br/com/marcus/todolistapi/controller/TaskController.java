@@ -31,9 +31,8 @@ public class TaskController {
     }
 
     @PostMapping
-    public ResponseEntity save(@RequestBody TaskModel model){
-        service.saveTaskModel(model);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<TaskModel> save(@RequestBody TaskModel model){
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.saveTaskModel(model));
     }
     @PutMapping("/{id}")
     public ResponseEntity update(@RequestBody TaskModel model, @PathVariable Long id){
