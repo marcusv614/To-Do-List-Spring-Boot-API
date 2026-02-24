@@ -14,7 +14,7 @@ export default function TaskForm({ onTaskCreated }) {
       onTaskCreated(response.data);
       setTitle("");
     } catch (error) {
-      console.log("Erro ao criar task");
+      console.log("Erro ao criar task", error);
     }
   };
 
