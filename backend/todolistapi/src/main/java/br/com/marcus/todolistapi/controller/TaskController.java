@@ -17,7 +17,8 @@ import br.com.marcus.todolistapi.service.TaskService;
 
 @RestController
 @RequestMapping("/todo")
-@CrossOrigin(origins = "http://localhost:5173")public class TaskController {
+@CrossOrigin("*")
+public class TaskController {
     private final TaskService service;
 
     public TaskController(TaskService service){
