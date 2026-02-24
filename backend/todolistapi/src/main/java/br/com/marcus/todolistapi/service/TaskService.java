@@ -21,11 +21,11 @@ public class TaskService {
     public TaskModel saveTaskModel(TaskModel model){
         return repo.save(model);
     }
-    public void updateTask(Long id, TaskModel model){
+    public TaskModel updateTask(Long id, TaskModel model){
         TaskModel modelData = repo.findById(id)
         .orElseThrow(() -> new RuntimeException("Task not found"));
         modelData.setTitle(model.getTitle());
-        repo.save(modelData);
+        return repo.save(modelData);
     }
     public void deleteTask(Long id){
         TaskModel model = repo.findById(id)

@@ -34,11 +34,12 @@ public class TaskController {
     public ResponseEntity<TaskModel> save(@RequestBody TaskModel model){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.saveTaskModel(model));
     }
+
     @PutMapping("/{id}")
-    public ResponseEntity update(@RequestBody TaskModel model, @PathVariable Long id){
-        service.updateTask(id, model);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<TaskModel> update(@RequestBody TaskModel model, @PathVariable Long id){
+        return ResponseEntity.ok().body(service.updateTask(id, model));
     }
+    
     @DeleteMapping("{id}")
     public ResponseEntity delete(@PathVariable Long id){
         service.deleteTask(id);
