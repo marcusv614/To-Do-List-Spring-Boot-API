@@ -10,6 +10,32 @@ export default function TaskList() {
     loadTasks();
   }, []);
 
+  const handleTaskUpdated = (updatedTask) => {
+    setTasks(
+      tasks.map((task) => (task.id === updatedTask.id ? updatedTask : task)),
+    );
+  };
+
+  const moveTask = (index, direction) => {
+    setTasks((prevTasks) => {
+      const newTasks = [...prevTasks];
+
+      const newIndex = index + direction;
+
+      if (newIndex < 0 || newIndex >= newTasks.length) {
+        return prevTasks;
+      }
+
+      // Troca as posições
+      [newTasks[index], newTasks[newIndex]] = [
+        newTasks[newIndex],
+        newTasks[index],
+      ];
+
+      return newTasks;
+    });
+  };
+
   const loadTasks = async () => {
     try {
       const response = await getTasks();
@@ -24,7 +50,7 @@ export default function TaskList() {
   };
 
   const handleTaskDeleted = (id) => {
-    setTasks(tasks.filter(task => task.id !== id));
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
   return (
@@ -34,11 +60,14 @@ export default function TaskList() {
       <TaskForm onTaskCreated={handleTaskCreated} />
 
       <ul>
-        {tasks.map(task => (
+        {tasks.map((task, index) => (
           <TaskItem
             key={task.id}
             task={task}
             onTaskDeleted={handleTaskDeleted}
+            onTaskUpdated={handleTaskUpdated}
+            moveUp={() => moveTask(index, -1)}
+            moveDown={() => moveTask(index, 1)}
           />
         ))}
       </ul>
