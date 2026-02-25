@@ -48,7 +48,7 @@ form button {
   padding: 10px 20px;
   border-radius: 50px;
   border: none;
-  background: #ff4d6d;
+  background: #824dff;
   color: white;
   font-weight: 600;
   cursor: pointer;
@@ -63,13 +63,15 @@ form button:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  align-items: center;
   gap: 10px;
   padding: 10px 12px;
   margin-bottom: 8px;
   border-radius: 10px;
   background: #f8f9fa;
   transition: 0.2s ease;
+  overflow: hidden;
+  transform-origin: center;
+  will-change: transform, opacity;
 }
 
 .task-title {
@@ -97,10 +99,15 @@ form button:hover {
   background: #d8d8e4;
 }
 
+.task button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .task .move-btn {
   background: transparent;
-  color: #ff4d6d;
-  border: 1px solid #ff4d6d;
+  color: #824dff;
+  border: 1px solid #824dff;
   width: 30px;
   height: 30px;
   padding: 0;
@@ -118,4 +125,43 @@ form button:hover {
   width: 16px;
   height: 16px;
   cursor: pointer;
+}
+
+.task.entering {
+  animation: task-enter 320ms ease both;
+}
+
+.task.removing {
+  pointer-events: none;
+  animation: task-remove 220ms ease forwards;
+}
+
+@keyframes task-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes task-remove {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    max-height: 70px;
+    margin-bottom: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(14px) scale(0.98);
+    max-height: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }

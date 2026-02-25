@@ -7,14 +7,28 @@ export default function TaskItem({
   onTaskUpdated,
   moveUp,
   moveDown,
+  isNew,
+  itemRef,
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [newTitle, setNewTitle] = useState(task.title);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   function handleDelete() {
-    deleteTask(task.id).then(() => {
-      onTaskDeleted(task.id);
-    });
+    if (isDeleting) {
+      return;
+    }
+
+    deleteTask(task.id)
+      .then(() => {
+        setIsDeleting(true);
+        setTimeout(() => {
+          onTaskDeleted(task.id);
+        }, 220);
+      })
+      .catch((error) => {
+        console.error("Erro ao excluir task:", error);
+      });
   }
 
   function handleUpdate() {
@@ -30,6 +44,10 @@ export default function TaskItem({
   }
 
   function handleToggleCompleted() {
+    if (isDeleting) {
+      return;
+    }
+
     const nextCompleted = !task.completed;
     onTaskUpdated({ ...task, completed: nextCompleted });
 
@@ -49,14 +67,23 @@ export default function TaskItem({
   }
 
   return (
-    <li className="task">
-      <button className="move-btn" onClick={moveUp} aria-label="Mover para cima">
+    <li
+      ref={itemRef}
+      className={`task ${isNew ? "entering" : ""} ${isDeleting ? "removing" : ""}`}
+    >
+      <button
+        className="move-btn"
+        onClick={moveUp}
+        aria-label="Mover para cima"
+        disabled={isDeleting}
+      >
         ↑
       </button>
       <button
         className="move-btn"
         onClick={moveDown}
         aria-label="Mover para baixo"
+        disabled={isDeleting}
       >
         ↓
       </button>
@@ -65,6 +92,7 @@ export default function TaskItem({
         type="checkbox"
         checked={Boolean(task.completed)}
         onChange={handleToggleCompleted}
+        disabled={isDeleting}
       />
 
       {isEditing ? (
@@ -72,19 +100,26 @@ export default function TaskItem({
           <input
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
+            disabled={isDeleting}
           />
-          <button onClick={handleUpdate}>Salvar</button>
+          <button onClick={handleUpdate} disabled={isDeleting}>
+            Salvar
+          </button>
         </>
       ) : (
         <>
           <span className={`task-title ${task.completed ? "completed" : ""}`}>
             {task.title}
           </span>
-          <button onClick={() => setIsEditing(true)}>Editar</button>
+          <button onClick={() => setIsEditing(true)} disabled={isDeleting}>
+            Editar
+          </button>
         </>
       )}
 
-      <button onClick={handleDelete}>Excluir</button>
+      <button onClick={handleDelete} disabled={isDeleting}>
+        Excluir
+      </button>
     </li>
   );
 }
