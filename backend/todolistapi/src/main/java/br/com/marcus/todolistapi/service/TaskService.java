@@ -25,6 +25,7 @@ public class TaskService {
         TaskModel modelData = repo.findById(id)
         .orElseThrow(() -> new RuntimeException("Task not found"));
         modelData.setTitle(model.getTitle());
+        modelData.setCompleted(model.getCompleted());
         return repo.save(modelData);
     }
     public void deleteTask(Long id){
