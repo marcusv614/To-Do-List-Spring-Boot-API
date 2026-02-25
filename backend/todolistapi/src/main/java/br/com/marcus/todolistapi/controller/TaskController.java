@@ -17,7 +17,8 @@ import br.com.marcus.todolistapi.service.TaskService;
 
 @RestController
 @RequestMapping("/todo")
-@CrossOrigin(origins = "https://to-do-list-rosy-tau-15.vercel.app") public class TaskController {
+@CrossOrigin(origins = "*") 
+public class TaskController {
     private final TaskService service;
 
     public TaskController(TaskService service){
