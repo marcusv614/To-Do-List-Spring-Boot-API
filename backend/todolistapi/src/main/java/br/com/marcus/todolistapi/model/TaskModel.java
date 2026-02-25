@@ -15,6 +15,8 @@ public class TaskModel {
     private Long id;
     @Column(nullable=false, length=150)
     private String title;
+    @Column(nullable=false)
+    private Boolean completed = false;
     public Long getId() {
         return id;
     }
@@ -26,5 +28,13 @@ public class TaskModel {
     }
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Boolean getCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(Boolean completed) {
+        this.completed = completed;
     }
 }
