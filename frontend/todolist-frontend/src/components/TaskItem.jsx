@@ -6,7 +6,7 @@ export default function TaskItem({
   onTaskDeleted,
   onTaskUpdated,
   moveUp,
-  moveDown
+  moveDown,
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [newTitle, setNewTitle] = useState(task.title);
@@ -20,7 +20,9 @@ export default function TaskItem({
   function handleUpdate() {
     putTask(task.id, {
       title: newTitle,
-      completed: task.completed
+      completed: task.completed,
+      done: task.completed,
+      isCompleted: task.completed,
     }).then((response) => {
       onTaskUpdated(response.data);
       setIsEditing(false);
@@ -28,25 +30,40 @@ export default function TaskItem({
   }
 
   function handleToggleCompleted() {
+    const nextCompleted = !task.completed;
+    onTaskUpdated({ ...task, completed: nextCompleted });
+
     putTask(task.id, {
       title: task.title,
-      completed: !task.completed
-    }).then((response) => {
-      onTaskUpdated(response.data);
-    });
+      completed: nextCompleted,
+      done: nextCompleted,
+      isCompleted: nextCompleted,
+    })
+      .then((response) => {
+        onTaskUpdated(response.data);
+      })
+      .catch((error) => {
+        onTaskUpdated(task);
+        console.error("Erro ao atualizar status da task:", error);
+      });
   }
 
   return (
-    <li style={{ 
-      textDecoration: task.completed ? "line-through" : "none",
-      opacity: task.completed ? 0.6 : 1
-    }}>
-      <button onClick={moveUp}>⬆️</button>
-      <button onClick={moveDown}>⬇️</button>
+    <li className="task">
+      <button className="move-btn" onClick={moveUp} aria-label="Mover para cima">
+        ↑
+      </button>
+      <button
+        className="move-btn"
+        onClick={moveDown}
+        aria-label="Mover para baixo"
+      >
+        ↓
+      </button>
 
       <input
         type="checkbox"
-        checked={task.completed}
+        checked={Boolean(task.completed)}
         onChange={handleToggleCompleted}
       />
 
@@ -60,7 +77,9 @@ export default function TaskItem({
         </>
       ) : (
         <>
-          {task.title}
+          <span className={`task-title ${task.completed ? "completed" : ""}`}>
+            {task.title}
+          </span>
           <button onClick={() => setIsEditing(true)}>Editar</button>
         </>
       )}

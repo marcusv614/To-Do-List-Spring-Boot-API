@@ -3,6 +3,15 @@ import { getTasks } from "../services/TaskService";
 import TaskItem from "./TaskItem";
 import TaskForm from "./TaskForm";
 
+function normalizeTask(task) {
+  return {
+    ...task,
+    completed: Boolean(
+      task.completed ?? task.done ?? task.isCompleted ?? task.finished,
+    ),
+  };
+}
+
 export default function TaskList() {
   const [tasks, setTasks] = useState([]);
 
@@ -11,8 +20,11 @@ export default function TaskList() {
   }, []);
 
   const handleTaskUpdated = (updatedTask) => {
-    setTasks(
-      tasks.map((task) => (task.id === updatedTask.id ? updatedTask : task)),
+    const normalizedTask = normalizeTask(updatedTask);
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === normalizedTask.id ? normalizedTask : task,
+      ),
     );
   };
 
@@ -39,22 +51,22 @@ export default function TaskList() {
   const loadTasks = async () => {
     try {
       const response = await getTasks();
-      setTasks(response.data);
+      setTasks(response.data.map(normalizeTask));
     } catch (error) {
       console.error("Erro ao buscar tasks:", error);
     }
   };
 
   const handleTaskCreated = (newTask) => {
-    setTasks([...tasks, newTask]);
+    setTasks((prevTasks) => [...prevTasks, normalizeTask(newTask)]);
   };
 
   const handleTaskDeleted = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
 
   return (
-    <div>
+    <div className="card">
       <h2>Minha ToDo List</h2>
 
       <TaskForm onTaskCreated={handleTaskCreated} />
