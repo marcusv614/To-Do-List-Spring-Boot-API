@@ -4,21 +4,11 @@ Aplicação de gerenciamento de tarefas com backend em Spring Boot e frontend em
 
 ## URLs de deploy
 
-- Frontend: `https://to-do-list-1-zwcy.onrender.com`
+- Frontend: [https://to-do-list-1-zwcy.onrender.com](https://to-do-list-1-zwcy.onrender.com)
 - API: `https://to-do-list-pe2n.onrender.com`
 
 Para testar a aplicação rapidamente sem configurar ambiente local, acesse a URL do frontend.  
 Para testar diretamente os endpoints do backend, use a URL da API.
-
-## Screenshots
-
-### Frontend
-
-![Screenshot do frontend](docs/images/frontend-screenshot.png)
-
-### Swagger (API rodando)
-
-![Screenshot do Swagger](docs/images/swagger-screenshot.png)
 
 ## Visão geral
 
@@ -58,7 +48,14 @@ Este repositório possui um `docker-compose.yml` na raiz com:
 
 Observação: o Postgres do container é exposto em `localhost:5433` para evitar conflito com instalações locais na `5432`.
 
-### Subir containers
+Antes de rodar com Docker, você precisa clonar o repositório:
+
+```bash
+git clone https://github.com/marcusv614/To-Do-List.git
+cd To-Do-List
+```
+
+### Subir os containers
 
 ```bash
 docker compose up -d --build
