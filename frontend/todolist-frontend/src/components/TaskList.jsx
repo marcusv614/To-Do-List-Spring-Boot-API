@@ -126,7 +126,7 @@ export default function TaskList() {
 
   return (
     <div className="card">
-      <h2>Minha To-Do List</h2>
+      <h2>To-Do List</h2>
 
       <TaskForm onTaskCreated={handleTaskCreated} />
 
