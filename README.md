@@ -44,14 +44,6 @@ Este projeto permite:
 - **Vite** – Para build.
 - **Axios** – Para consumir APIs REST.
 
-## Estrutura do repositório
-
-```text
-to-do-list/
-|- backend/todolistapi        # API REST (Spring Boot)
-|- frontend/todolist-frontend # Aplicação web (React + Vite)
-```
-
 ## Pre-requisitos
 
 - Java 21
