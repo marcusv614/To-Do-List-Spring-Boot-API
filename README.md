@@ -1,12 +1,11 @@
-# To-Do List - Projeto Full Stack (React, Spring Boot, PostgreSQL)
+# To-Do List - Projeto Full Stack (React, Spring Boot, PostgreSQL)[
 
-<img width="1366" height="768" alt="Captura de tela de 2026-02-26 13-04-27" src="https://github.com/user-attachments/assets/810ea99d-875e-47cd-89e4-28454c3729d5" />
-
-## URLs de deploy
 A Aplicação está disponível em:  
 [https://to-do-list-1-zwcy.onrender.com](https://to-do-list-1-zwcy.onrender.com)
 
-URL da API:
+<img width="1366" height="768" alt="Captura de tela de 2026-02-26 13-04-27" src="https://github.com/user-attachments/assets/810ea99d-875e-47cd-89e4-28454c3729d5" />
+
+## URL da API:
 
 - `https://to-do-list-pe2n.onrender.com`
 
