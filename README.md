@@ -7,7 +7,7 @@ Para testar a aplicação rapidamente sem configurar ambiente local, acesse a UR
 [https://to-do-list-1-zwcy.onrender.com](https://to-do-list-1-zwcy.onrender.com)
 
 Para testar diretamente os endpoints do backend, use a URL da API:
-`https://to-do-list-pe2n.onrender.com`
+- `https://to-do-list-pe2n.onrender.com`
 
 ## Visão geral
 
