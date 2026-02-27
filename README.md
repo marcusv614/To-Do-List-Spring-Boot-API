@@ -12,8 +12,6 @@ Para testar diretamente os endpoints do backend, use a URL da API:
 
 - `https://to-do-list-pe2n.onrender.com`
 
-<img width="1366" height="768" alt="Captura de tela de 2026-02-26 13-00-29" src="https://github.com/user-attachments/assets/0b373e98-d6b5-49db-81c8-f15e04001c10" />
-
 ## Visão geral
 
 Este projeto permite:
@@ -77,6 +75,8 @@ docker compose logs -f backend
 - API: `http://localhost:8080`
 - Swagger: `http://localhost:8080/swagger-ui/index.html`
 - OpenAPI JSON: `http://localhost:8080/v3/api-docs`
+- 
+<img width="1366" height="768" alt="Captura de tela de 2026-02-26 13-00-29" src="https://github.com/user-attachments/assets/0b373e98-d6b5-49db-81c8-f15e04001c10" />
 
 ### Parar containers
 
