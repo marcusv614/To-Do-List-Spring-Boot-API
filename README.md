@@ -3,10 +3,10 @@
 <img width="1366" height="768" alt="Captura de tela de 2026-02-26 13-04-27" src="https://github.com/user-attachments/assets/810ea99d-875e-47cd-89e4-28454c3729d5" />
 
 ## URLs de deploy
-Para testar a aplicação rapidamente sem configurar ambiente local, acesse a URL:  
+A Aplicação está disponível em:  
 [https://to-do-list-1-zwcy.onrender.com](https://to-do-list-1-zwcy.onrender.com)
 
-Para testar diretamente os endpoints do backend, use a URL da API:
+URL da API:
 
 - `https://to-do-list-pe2n.onrender.com`
 
