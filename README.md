@@ -1,6 +1,7 @@
 # To-Do List - Projeto Full Stack
 
 Aplicação de gerenciamento de tarefas com backend em Spring Boot e frontend em React.
+
 <img width="1366" height="768" alt="Captura de tela de 2026-02-26 13-04-27" src="https://github.com/user-attachments/assets/810ea99d-875e-47cd-89e4-28454c3729d5" />
 
 ## URLs de deploy
@@ -8,7 +9,10 @@ Para testar a aplicação rapidamente sem configurar ambiente local, acesse a UR
 [https://to-do-list-1-zwcy.onrender.com](https://to-do-list-1-zwcy.onrender.com)
 
 Para testar diretamente os endpoints do backend, use a URL da API:
+
 - `https://to-do-list-pe2n.onrender.com`
+
+<img width="1366" height="768" alt="Captura de tela de 2026-02-26 13-00-29" src="https://github.com/user-attachments/assets/0b373e98-d6b5-49db-81c8-f15e04001c10" />
 
 ## Visão geral
 
