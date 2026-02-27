@@ -21,9 +21,28 @@ Este projeto permite:
 - Reordenar tarefas na interface
 
 ## Stack utilizada
+### Backend
 
-- Backend: Java 21, Spring Boot, Spring Web, Spring Data JPA, Flyway, PostgreSQL, Springdoc OpenAPI
-- Frontend: React 19, Vite, Axios
+- **Java 21**
+- **Spring Boot** – Framework para construção da API REST.
+
+  **Dependências do Spring:**
+  - **Spring Web** – Criação de endpoints REST e tratamento de requisições HTTP.
+  - **Spring Data JPA** – Camada de persistência de dados e integração com Hibernate.
+  - **Flyway** – Versionamento e controle de migrações do banco de dados.
+  - **Springdoc OpenAPI** – Documentação da API (Swagger UI).
+
+- **PostgreSQL** – Banco de Dados.
+
+**Arquitetura:** - Padrão MVC (Model-View-Controller), com separação em camadas (Controller, Service, Repository e Model).
+
+---
+
+### Frontend
+
+- **React 19** – Biblioteca para construção de componentes.
+- **Vite** – Para build.
+- **Axios** – Para consumir APIs REST.
 
 ## Estrutura do repositório
 
