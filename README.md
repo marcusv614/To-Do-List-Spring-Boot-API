@@ -1,6 +1,7 @@
 # To-Do List - Projeto Full Stack
 
 Aplicação de gerenciamento de tarefas com backend em Spring Boot e frontend em React.
+<img width="1366" height="768" alt="Captura de tela de 2026-02-26 13-04-27" src="https://github.com/user-attachments/assets/810ea99d-875e-47cd-89e4-28454c3729d5" />
 
 ## URLs de deploy
 Para testar a aplicação rapidamente sem configurar ambiente local, acesse a URL:  
