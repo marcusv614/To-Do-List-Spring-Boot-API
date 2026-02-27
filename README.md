@@ -3,12 +3,11 @@
 Aplicação de gerenciamento de tarefas com backend em Spring Boot e frontend em React.
 
 ## URLs de deploy
+Para testar a aplicação rapidamente sem configurar ambiente local, acesse a URL:  
+[https://to-do-list-1-zwcy.onrender.com](https://to-do-list-1-zwcy.onrender.com)
 
-- Frontend: [https://to-do-list-1-zwcy.onrender.com](https://to-do-list-1-zwcy.onrender.com)
-- API: `https://to-do-list-pe2n.onrender.com`
-
-Para testar a aplicação rapidamente sem configurar ambiente local, acesse a URL do frontend.  
-Para testar diretamente os endpoints do backend, use a URL da API.
+Para testar diretamente os endpoints do backend, use a URL da API:
+`https://to-do-list-pe2n.onrender.com`
 
 ## Visão geral
 
