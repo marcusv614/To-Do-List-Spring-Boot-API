@@ -1,4 +1,4 @@
-# To-Do List - Projeto Full Stack (React, Spring Boot, PostgreSQL)[
+# To-Do List - Projeto Full Stack (React, Spring Boot, PostgreSQL)
 
 A Aplicação está disponível em:  
 [https://to-do-list-1-zwcy.onrender.com](https://to-do-list-1-zwcy.onrender.com)
