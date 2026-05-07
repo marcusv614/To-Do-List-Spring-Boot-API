@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.marcus.todolistapi.DTO.TaskResponseDTO;
 import br.com.marcus.todolistapi.model.TaskModel;
 import br.com.marcus.todolistapi.service.TaskService;
 
 @RestController
 @RequestMapping
-@CrossOrigin(origins = "https://to-do-list-1-zwcy.onrender.com") 
+@CrossOrigin(origins = "*") 
 public class TaskController {
     private final TaskService service;
 
@@ -28,7 +29,7 @@ public class TaskController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TaskModel>> show(){
+    public ResponseEntity<List<TaskResponseDTO>> show(){
         return ResponseEntity.ok(service.showAllTasks());
     }
 
