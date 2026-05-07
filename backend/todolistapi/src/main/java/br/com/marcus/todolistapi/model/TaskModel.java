@@ -10,6 +10,13 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="tasks")
 public class TaskModel {
+    public TaskModel(Long id, String title, Boolean completed) {
+        this.id = id;
+        this.title = title;
+        this.completed = completed;
+    }
+    public TaskModel() {}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
