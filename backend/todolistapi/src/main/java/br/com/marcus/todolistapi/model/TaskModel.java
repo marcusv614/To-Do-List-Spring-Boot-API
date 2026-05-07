@@ -1,5 +1,6 @@
 package br.com.marcus.todolistapi.model;
 
+import br.com.marcus.todolistapi.DTO.TaskRequestDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +18,10 @@ public class TaskModel {
     }
     public TaskModel() {}
 
+    public TaskModel(TaskRequestDTO dto) {
+        this.title = dto.title();
+        this.completed = dto.completed();
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
