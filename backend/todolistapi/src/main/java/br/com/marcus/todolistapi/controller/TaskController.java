@@ -1,6 +1,7 @@
 package br.com.marcus.todolistapi.controller;
 
 import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,14 +13,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import br.com.marcus.todolistapi.DTO.TaskRequestDTO;
 import br.com.marcus.todolistapi.DTO.TaskResponseDTO;
 import br.com.marcus.todolistapi.service.TaskService;
 
 @RestController
 @RequestMapping
-@CrossOrigin(origins = "*") 
-//nao esquecer de mudar o cors!!!!
+@CrossOrigin(origins = "https://to-do-list-1-zwcy.onrender.com") 
 public class TaskController {
     private final TaskService service;
 
