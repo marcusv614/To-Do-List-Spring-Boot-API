@@ -30,7 +30,7 @@ public class TaskController {
 
     @GetMapping
     public ResponseEntity<List<TaskResponseDTO>> show(){
-        return ResponseEntity.ok(service.showAllTasks());
+        return ResponseEntity.ok(service.showTasksService());
     }
 
     @PostMapping
@@ -40,12 +40,12 @@ public class TaskController {
 
     @PutMapping("/{id}")
     public ResponseEntity<TaskModel> update(@RequestBody TaskModel model, @PathVariable Long id){
-        return ResponseEntity.ok().body(service.updateTask(id, model));
+        return ResponseEntity.ok().body(service.updateTaskService(id, model));
     }
     
     @DeleteMapping("{id}")
     public ResponseEntity delete(@PathVariable Long id){
-        service.deleteTask(id);
+        service.deleteTaskService(id);
         return ResponseEntity.ok().build();
     }
 }

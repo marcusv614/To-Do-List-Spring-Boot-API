@@ -17,7 +17,7 @@ public class TaskService {
         this.repo = repo;
     }
 
-    public List<TaskResponseDTO> showAllTasks(){
+    public List<TaskResponseDTO> showTasksService(){
         List<TaskModel> listModel = repo.findAll();
         List<TaskResponseDTO> listDtos = listModel
         		.stream()
@@ -33,14 +33,14 @@ public class TaskService {
         return taskResponseDTO;
     }
 
-    public TaskModel updateTask(Long id, TaskModel model){
+    public TaskModel updateTaskService(Long id, TaskModel model){
         TaskModel modelData = repo.findById(id)
         .orElseThrow(() -> new RuntimeException("Task not found"));
         modelData.setTitle(model.getTitle());
         modelData.setCompleted(model.getCompleted());
         return repo.save(modelData);
     }
-    public void deleteTask(Long id){
+    public void deleteTaskService(Long id){
         TaskModel model = repo.findById(id)
         .orElseThrow(() -> new RuntimeException("User not found"));
         repo.delete(model);
