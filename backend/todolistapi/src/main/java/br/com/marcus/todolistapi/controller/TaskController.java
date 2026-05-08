@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import br.com.marcus.todolistapi.DTO.TaskRequestDTO;
 import br.com.marcus.todolistapi.DTO.TaskResponseDTO;
-import br.com.marcus.todolistapi.model.TaskModel;
 import br.com.marcus.todolistapi.service.TaskService;
 
 @RestController
@@ -39,8 +38,8 @@ public class TaskController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TaskModel> update(@RequestBody TaskModel model, @PathVariable Long id){
-        return ResponseEntity.ok().body(service.updateTaskService(id, model));
+    public ResponseEntity<TaskResponseDTO> update(@RequestBody TaskRequestDTO dto, @PathVariable Long id){
+        return ResponseEntity.ok().body(service.updateTaskService(id, dto));
     }
     
     @DeleteMapping("{id}")
