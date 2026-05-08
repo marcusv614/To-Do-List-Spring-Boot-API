@@ -44,7 +44,7 @@ public class TaskService {
     }
     public void deleteTaskService(Long id){
         TaskModel model = repo.findById(id)
-        .orElseThrow(() -> new RuntimeException("User not found"));
+        .orElseThrow(() -> new RuntimeException("Task not found"));
         repo.delete(model);
     }
 }

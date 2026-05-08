@@ -20,7 +20,7 @@ public class TaskModel {
 
     public TaskModel(TaskRequestDTO dto) {
         this.title = dto.title();
-        this.completed = dto.completed();
+        this.completed = dto.completed() == null ? false : dto.completed();
     }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
