@@ -1,7 +1,6 @@
 package br.com.marcus.todolistapi.controller;
 
 import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,10 +12,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.com.marcus.todolistapi.DTO.TaskRequestDTO;
 import br.com.marcus.todolistapi.DTO.TaskResponseDTO;
 import br.com.marcus.todolistapi.service.TaskService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping
@@ -34,17 +33,17 @@ public class TaskController {
     }
 
     @PostMapping
-    public ResponseEntity<TaskResponseDTO> save(@RequestBody TaskRequestDTO requestDTO){
+    public ResponseEntity<TaskResponseDTO> save(@RequestBody @Valid TaskRequestDTO requestDTO){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.saveTaskService(requestDTO));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TaskResponseDTO> update(@RequestBody TaskRequestDTO dto, @PathVariable Long id){
+    public ResponseEntity<TaskResponseDTO> update(@RequestBody @Valid TaskRequestDTO dto, @PathVariable Long id){
         return ResponseEntity.ok().body(service.updateTaskService(id, dto));
     }
     
     @DeleteMapping("{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id){
+    public ResponseEntity<?> delete(@PathVariable @Valid Long id){
         service.deleteTaskService(id);
         return ResponseEntity.ok().build();
     }

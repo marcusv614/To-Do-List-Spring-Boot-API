@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import br.com.marcus.todolistapi.DTO.TaskRequestDTO;
 import br.com.marcus.todolistapi.DTO.TaskResponseDTO;
+import br.com.marcus.todolistapi.exception.custom.TaskNotFoundException;
 import br.com.marcus.todolistapi.model.TaskModel;
 import br.com.marcus.todolistapi.repository.TaskRepository;
 
@@ -33,7 +34,7 @@ public class TaskService {
 
     public TaskResponseDTO updateTaskService(Long id, TaskRequestDTO dto){
         TaskModel modelData = repo.findById(id)
-        .orElseThrow(() -> new RuntimeException("Task not found"));
+        .orElseThrow(() -> new TaskNotFoundException("Task not found"));
         if(dto.title() != null) {
             modelData.setTitle(dto.title());
         } 
@@ -42,9 +43,10 @@ public class TaskService {
         TaskResponseDTO updatedDTO = new TaskResponseDTO(updatedModel);
         return updatedDTO;
     }
+    
     public void deleteTaskService(Long id){
         TaskModel model = repo.findById(id)
-        .orElseThrow(() -> new RuntimeException("Task not found"));
+        .orElseThrow(() -> new TaskNotFoundException("Task not found"));
         repo.delete(model);
     }
 }
