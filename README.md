@@ -2,6 +2,8 @@
 
 API REST para gerenciamento de tarefas, desenvolvida com Java 21, Spring Boot e PostgreSQL.
 
+<img width="1366" height="768" alt="Captura de tela de 2026-02-26 13-00-29" src="https://github.com/user-attachments/assets/0b373e98-d6b5-49db-81c8-f15e04001c10" />
+
 ## URL da API
 
 - `https://to-do-list-pe2n.onrender.com`
@@ -113,8 +115,6 @@ A API ficara disponivel em:
 - API: `http://localhost:8080`
 - Swagger UI: `http://localhost:8080/swagger-ui/index.html`
 - OpenAPI JSON: `http://localhost:8080/v3/api-docs`
-
-<img width="1366" height="768" alt="Captura de tela de 2026-02-26 13-00-29" src="https://github.com/user-attachments/assets/0b373e98-d6b5-49db-81c8-f15e04001c10" />
 
 ## Endpoints da API
 
