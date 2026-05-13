@@ -19,7 +19,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping
-@CrossOrigin(origins = "https://to-do-list-1-zwcy.onrender.com") 
+@CrossOrigin(origins = "https://to-do-list-frontend-sepia.vercel.app/") 
 public class TaskController {
     private final TaskService service;
 
